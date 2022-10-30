@@ -1,0 +1,12 @@
+QLabel{
+    /*min-width: 250px;max-width: 250px;*/
+    border: 1px solid;
+    font-size: 30px;
+
+    /*text-align: center;*/
+    /*text-decoration: line-through;*/
+}
+
+QPushButton{
+    text-align: center;
+}

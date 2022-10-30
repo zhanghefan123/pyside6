@@ -1,0 +1,7 @@
+QLabel{
+    min-width:200px;min-height:100px;
+    background-color: white;
+    background-image: url('./img/right.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}

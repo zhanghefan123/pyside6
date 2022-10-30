@@ -1,0 +1,9 @@
+QLabel{
+    background: white;
+    font-size: 25px;
+    /*font-family: Monaco;*/
+    /*font-style: italic;*/
+    /*font-weight: bold;*/
+
+    /*font: ;*/
+}

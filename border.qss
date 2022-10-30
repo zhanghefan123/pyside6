@@ -1,0 +1,13 @@
+QLabel{
+    min-width:200px;min-height:100px;
+    background: white;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+    /*border-image: url('./img/xing.png');*/
+    border-radius: 10px;
+    /*border: 1px solid black;*/
+
+    /*border-bottom: 5px solid black;*/
+}

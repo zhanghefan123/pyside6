@@ -1,0 +1,14 @@
+.l1{
+    min-width: 200px;min-height: 100px;
+    max-width: 200px;max-height: 100px;
+    background: white;
+    margin-top: 40px;
+    /*margin-left: 50px;*/
+}
+
+.l2{
+    min-width: 100px;min-height: 50px;
+    max-width: 100px;max-height: 50px;
+    background: black;
+    /*margin-top: 40px;*/
+}
