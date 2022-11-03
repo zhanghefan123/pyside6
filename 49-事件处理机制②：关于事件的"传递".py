@@ -14,6 +14,8 @@ QEvent的api：
 5、type -- 返回事件类型
 """
 import sys
+
+import PySide6
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 from PySide6.QtCore import *
@@ -21,9 +23,17 @@ from PySide6.QtCore import *
 
 class my_line_edit(QLineEdit):
     def mousePressEvent(self, event):
-        # event.ignore()
+        event.ignore()
+        # 除了接受事件，我们还可以进行事件的拒绝，这个事件还没有解决
+        # 因为他下面没有了，所以需要开始向上进行传递
+        # 所以这里的代码之中会输出的结果是 this is window 以及 this is line_edit
         print('this is line_edit')
 
+    def keyPressEvent(self, arg__1: PySide6.QtGui.QKeyEvent) -> None:
+        # 我们需要执行其原本的功能，所以需要调用父类的方法
+        super(my_line_edit, self).keyPressEvent(arg__1)
+        # 下面是我们自己的附加的方法
+        print('this is line_edit')
 
 class Window(QWidget):
     def __init__(self):

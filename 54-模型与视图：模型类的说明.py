@@ -2,8 +2,14 @@
 """
 官方文档描述：
 
-1. QAbstractItemModel为数据提供了接口，这使得数据本身并不需要存放在模型中，而是可以存放在数据结构、某一个单独的类、文件、数据库、或者其它一些应用组件中
-2. QAbstractItemModel同时也定义了使用视图和委托来访问数据的接口，对接视图和委托的接口足够的灵活，可以将数据分层进行处理，满足不同的视图呈现方式（列表、表格、树）
+1. QAbstractItemModel为数据提供了接口，这使得数据本身并不需要存放在模型中，而是可以存放在数据结构、
+某一个单独的类、文件、数据库、或者其它一些应用组件中
+
+2. QAbstractItemModel同时也定义了使用视图和委托来访问数据的接口，对接视图和委托的接口足够的灵活，
+可以将数据分层进行处理，满足不同的视图呈现方式（列表、表格、树 - 使用QStandardItemModel可以进行适配）
+
+这个QAbstractItemModel是顶层的抽象基类，所有的Model基本都继承了这一个类。比如我们的QStandardItemModel，
+QSqlTableModel，QSqlQueryModel，QFileSystemModel等等都是继承了这个类的。
 
 要注意的事儿：
 

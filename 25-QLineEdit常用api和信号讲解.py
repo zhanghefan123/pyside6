@@ -59,7 +59,7 @@ class Window(QWidget):
         # self.line_edit.setText('hello')
         # self.line_edit.setAlignment(Qt.AlignRight)
         # self.line_edit.setReadOnly(True)
-        # file = self.line_edit.addAction(QIcon('./photo/file_open.png'), QLineEdit.TrailingPosition)
+        # file = self.line_edit.addAction(QIcon('./icons/file_open.png'), QLineEdit.TrailingPosition)
         # file.triggered.connect(self.do_something)
         # self.line_edit.setEchoMode(QLineEdit.PasswordEchoOnEdit)
         # self.line_edit.setPlaceholderText('姓名、昵称：')

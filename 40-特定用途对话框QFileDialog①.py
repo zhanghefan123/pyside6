@@ -35,6 +35,7 @@ class Window(QWidget):
         # print(QFileDialog.getExistingDirectory(self, '打开', '/Users/kai'))
         print(QFileDialog.getSaveFileName(self, '保存', '/Users/kai', '*.py'))
 
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Window()

@@ -51,7 +51,7 @@ class Window(QWidget):
         box.addWidget(self.combox)
         box.addWidget(button)
         self.setLayout(box)
-
+        # 复选框通过添加item的方式添加选项
         self.combox.addItems(['python', 'java', 'c\c++'])
         self.combox.setEditable(True)
 

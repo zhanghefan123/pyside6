@@ -30,6 +30,7 @@ class Window(QWidget):
         self.setLayout(box)
 
         self.rex_validator = QRegularExpressionValidator()
+        # 允许输入8位的数字
         self.rex_validator.setRegularExpression('\d{8}')
         self.line_edit.setValidator(self.rex_validator)
 

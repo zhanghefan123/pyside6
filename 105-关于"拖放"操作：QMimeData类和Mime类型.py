@@ -37,7 +37,7 @@ class Label(QLabel):
     def mousePressEvent(self, event):
         dg = QDrag(self)
         mime_data = QMimeData()
-        pixmap = QPixmap('./photo/go.png')
+        pixmap = QPixmap('icons/go.png')
         pixmap.scaled(40, 60, Qt.KeepAspectRatio)
         mime_data.setText('hello world')
         mime_data.setHtml('<h1>hello world</h1>')

@@ -1,5 +1,7 @@
-# QStandardItemModel -- 通用标准模型类，实现了QAbstractItemModel接口，该模型可以为任何支持该接口的视图提供数据（可以实现全部三种数据组织结构）
-# QStandardItemModel使用QStandardItem作为数据支撑
+# QStandardItemModel -- 通用标准模型类，实现了QAbstractItemModel接口，
+# 该模型可以为任何支持该接口的视图提供数据（可以实现全部三种数据组织结构）
+# 列表，表格以及树形结构都可以使用他进行实现
+# QStandardItemModel使用QStandardItem作为数据支撑，即由我们的QStandardItem来组成
 """
 QStandardItemModel常用api：
 1、appendRow()、insertRow() -- 添加行的项目；（注意：适用于列表、表格和树）
@@ -27,6 +29,7 @@ from PySide6.QtGui import *
 from PySide6.QtCore import *
 
 
+# 列表视图的呈现方式
 class list_model(QStandardItemModel):
     def __init__(self):
         super(list_model, self).__init__()
@@ -35,27 +38,45 @@ class list_model(QStandardItemModel):
         self.appendRow(QStandardItem('Python'))
         self.appendRow(item1)
         self.appendRow(QStandardItem('C/C++'))
-        # self.insertRow(1, QStandardItem('ruby'))
+        # 我们还可以传递一个列表-但是在实际的情况下只能第一个生效
+        self.appendRow([QStandardItem('C#'), QStandardItem('PHP')])
+        # 行索引从1开始
+        self.insertRow(1, QStandardItem('ruby'))
         # self.setItem(0, QStandardItem('ruby'))
         # print(self.indexFromItem(item1))
         # self.setData(self.index(0, 0), 'ruby', Qt.DisplayRole)
-        print(self.data(self.index(1, 0), Qt.FontRole))
+        # Qt.DisplayRole就是显示我们的数据
+        print(self.data(self.index(1, 0), Qt.DisplayRole))
+        # 下面进行重新的某一项的设置
+        self.setData(self.index(0, 0), "zhf")
 
 
+# 表格视图的呈现方式
 class table_model(QStandardItemModel):
     def __init__(self):
         super(table_model, self).__init__()
         self.insertRow(0, [QStandardItem('Python'), QStandardItem('Java')])
         self.insertRow(1, [QStandardItem('C/C++'), QStandardItem('Go')])
-        # print(self.item(1, 1).text())
+        # 注意行列可以是不完全一致的
+        self.insertColumn(0, [QStandardItem('C#'), QStandardItem('PHP'), QStandardItem('Ruby')])
+        # 返回第二行第二列的值
+        print(self.item(1, 1).text())
+
+        # 这样会限制总共只存在两行两列的数据，其他的数据都将被截断
         # self.setRowCount(2)
         # self.setColumnCount(2)
-        # self.setHorizontalHeaderLabels(['name', 'age'])
-        # self.setVerticalHeaderItem(0, QStandardItem('name'))
-        # self.setVerticalHeaderItem(1, QStandardItem('age'))
-        # self.setVerticalHeaderLabels(['name', 'age'])
+        # 并且如果一开始就进行设置，那么我们需要将其放到前面。
+
+        # setItem()方法，我们传递的是行索引，和列索引，以及设置的项目
+        self.setItem(0, 0, QStandardItem('Ruby'))
+
+        # 下面进行的是水平标题的设置
+        self.setHorizontalHeaderLabels(['name', 'age', "year"])
+        # 下面进行的是垂直的标题的设置
+        self.setVerticalHeaderLabels(['name', 'age', "year"])
 
 
+# 树视图的呈现方式
 class tree_model(QStandardItemModel):
     def __init__(self):
         super(tree_model, self).__init__()
@@ -63,8 +84,17 @@ class tree_model(QStandardItemModel):
         self.appendRow(QStandardItem('Python'))
         self.appendRow(QStandardItem('Java'))
         self.appendRow(self.c_c)
-        # self.c_c.setChild(0, 0, QStandardItem('C++'))
-        # self.c_c.setChild(1, 0, QStandardItem('C'))
+        # 为我们的c_c结点进行子结点的设置
+        # 第一个子结点位于第0行第0列
+        # 第二个子结点位于第1行第0列
+        self.c_sharp = QStandardItem('C#')
+        self.c_c.setChild(0, 0, QStandardItem('C++'))
+        self.c_c.setChild(1, 0, QStandardItem('C'))
+        self.c_c.setChild(2, 0, self.c_sharp)
+
+        self.c_sharp.setChild(0, 0, QStandardItem('C#1'))
+
+        # 然后我们可以通过index进行指定项目所处的行，列，父级
 
 
 class Window(QWidget):
@@ -76,10 +106,15 @@ class Window(QWidget):
         model = list_model()
         # model = table_model()
         # model = tree_model()
+        # 找到第0行，第0列然后进行取值的操作
+        print(model.index(0, 0).data())
+        # model.indexFromItem(item) 用来传递一个item获得一个index
+        # model.itemFromIndex(index) 用来传递一个index获得一个item
         view = QListView()
         # view = QTableView()
         # view = QTreeView()
         view.setModel(model)
+        # 我们的view可以将数据存放进去
         button = QPushButton('Test')
         box = QVBoxLayout()
         box.addWidget(view)

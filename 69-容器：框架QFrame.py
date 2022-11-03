@@ -1,4 +1,4 @@
-# QFrame -- 框架；可以包裹多种控件，并设置框线样式
+# QFrame -- 框架（容器外围的框线就是由这个类来进实现的）；可以包裹多种控件，并设置框线样式
 """
 QFrame常用api：
 1、setFrameShape() -- 设置框线形状
@@ -38,6 +38,7 @@ class Window(QWidget):
         # label = QLabel('这是一段测试文本')
         box = QHBoxLayout()
         box.addWidget(frame)
+        box.addWidget(QPushButton('测试按钮'))
         self.setLayout(box)
 
         # label.setFrameShape(QFrame.Box)
@@ -45,9 +46,9 @@ class Window(QWidget):
         # label.setLineWidth(10)
         # label.setMidLineWidthLineWidth(10)
         frame.setFrameShape(QFrame.Box)
-        frame.setFrameShadow(QFrame.Raised)
+        # frame.setFrameShadow(QFrame.Raised)
         frame.setLineWidth(10)
-        frame.setMidLineWidth(10)
+        frame.setMidLineWidth(10)  # 设置中心线的宽度
 
 
 if __name__ == '__main__':

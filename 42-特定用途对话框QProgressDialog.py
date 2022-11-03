@@ -4,7 +4,8 @@
 QProgressDialog常用api：
 1、setMaximum()、setMaximum() -- 设置任务量的最小值和最大值
 2、setRange() -- 设置任务量范围
-3、setMinimumDuration() -- 设置"预估"的处理时间（单位是毫秒）
+3、setMinimumDuration() -- 设置"预估"的处理时间（单位是毫秒）超过这个事件才会出现进度条（如果不超过这个时间将不会出现进度条）
+# 相当于是用户容忍的一个时间
 4、setCancelButton() -- 设置一个Cancel按钮
 5、setCancelButtonText() -- 设置默认Cancel按钮上的文本
 6、setLabel() -- 设置一个标签
@@ -43,19 +44,18 @@ class Window(QWidget):
         # pg_dialog.forceShow()
         pg_dialog.setLabelText('now loading...')
         pg_dialog.setWindowModality(Qt.WindowModal)
-        pg_dialog.setMinimumDuration(2000)
+        # 不管总的运行时间是否超过了我们的minimumDuration，都会显示进度条
+        pg_dialog.forceShow()
         pg_dialog.setRange(0, 10000)
-
-        # pg_dialog.setBar()
-        # pg_dialog.exec_()
         for i in range(10000):
             pg_dialog.setValue(i)
-
-
+            # 中途取消
+            if pg_dialog.wasCanceled():
+                break
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Window()
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

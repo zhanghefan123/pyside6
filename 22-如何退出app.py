@@ -23,6 +23,7 @@ class Window(QWidget):
 
     def window_event(self):
         # app = QApplication.instance()
+        # 点击按钮将调用这个quit进行退出。
         app.quit()
 
 

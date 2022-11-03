@@ -30,7 +30,7 @@ class My_message(QMessageBox):
         # self.addButton(QMessageBox.Ok)
         # self.setStandardButtons(QMessageBox.Cancel)
         # self.setIcon(QMessageBox.Question)
-        # self.setIconPixmap(QPixmap('./photo/go.png'))
+        # self.setIconPixmap(QPixmap('./icons/go.png'))
         # button1 = QCheckBox('今天你学习了吗？', self)
         # self.setCheckBox(button1)
 

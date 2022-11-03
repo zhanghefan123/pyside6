@@ -36,7 +36,7 @@ class Window(QWidget):
 
         d_validator = QDoubleValidator()
         d_validator.setRange(1, 99)
-        d_validator.setDecimals(2)
+        d_validator.setDecimals(2) # 设置小数点的位数
         self.line_edit.setValidator(d_validator)
 
 

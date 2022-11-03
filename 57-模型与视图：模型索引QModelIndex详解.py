@@ -5,6 +5,8 @@ QModelIndex常用api：
 2、row() -- 返回索引所在的行
 3、model() -- 返回索引所在的模型
 4、data() -- 根据数据"角色"返回数据内容
+
+列表和表格之中没有同级的概念，所以只需要通过行来进行定位，而树型模型之中有同级的概念，所以需要通过行、列、父级来进行定位
 5、sibling() -- 返回同级的兄弟
 6、siblingAtColumn() -- 返回同级的列的兄弟
 7、siblingAtRow() -- 返回同级的行的兄弟
@@ -42,9 +44,9 @@ class tree_model(QStandardItemModel):
     def __init__(self):
         super(tree_model, self).__init__()
         self.setHorizontalHeaderLabels(['项目'])
-        self.appendRow(QStandardItem(QIcon('./photo/call.png'), 'Python'))
-        self.appendRow(QStandardItem(QIcon('./photo/call.png'), 'Java'))
-        self.appendRow(QStandardItem(QIcon('./photo/call.png'), '和C相关'))
+        self.appendRow(QStandardItem(QIcon('icons/call.png'), 'Python'))
+        self.appendRow(QStandardItem(QIcon('icons/call.png'), 'Java'))
+        self.appendRow(QStandardItem(QIcon('icons/call.png'), '和C相关'))
         c_index = self.index(2, 0)
         c_item = self.itemFromIndex(c_index)
         c_item.setChild(0, 0, QStandardItem('C'))
@@ -70,9 +72,12 @@ class Window(QWidget):
         self.setLayout(box)
 
         def window_event():
-            pass
-            # print(_model.index(0, 0, _model.index(2, 0)).data())
-            # c = _model.index(0, 0, _model.index(2, 0))
+            # 默认第一级是不需要进行父的指定的，因为他默认就是根结点
+            # 下面的代码之中的_model.index(2,0)找到的就是我们的顶层第三项和c相关
+            print(_model.index(0, 0, _model.index(2, 0)).data())
+            c = _model.index(0, 0, _model.index(2, 0))
+            # 拿到同一级的，就可以很方便地进行同级的兄弟获取
+            print(c.sibling(1, 0))
 
         button.clicked.connect(window_event)
 

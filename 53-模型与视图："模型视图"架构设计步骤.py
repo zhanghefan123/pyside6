@@ -9,7 +9,9 @@
 
 * 不需要单独创建委托，因为将模型和视图关联的时候，Qt会调用默认的委托对象，默认的委托对象已经能够做得很好，除非你有一些特殊的要求，你才需要自定义委托对象
 """
-# 关于"委托"的一些补充 -- 官方文档描述：QAbstractItemDelegate在模型/视图架构中代表抽象的基类；默认的委托实现由QStyledItemDelegate提供，这被Qt的标准视图用作默认的委托，然而，QStyledItemDelegate和QItemDelegate独立替代绘画，且为视图项提供编辑器；它们之间的区别在于QStyledItemDelegate使用当前样式来绘制项目。因此，建议实现自定义委托或当与Qt样式表一起使用时，使用QStyledItemDelegate作为基类
+# 关于"委托"的一些补充 -- 官方文档描述：QAbstractItemDelegate在模型/视图架构中代表抽象的基类；默认的委托实现由QStyledItemDelegate提供，这被Qt
+# 的标准视图用作默认的委托，然而，QStyledItemDelegate和QItemDelegate独立替代绘画，且为视图项提供编辑器；它们之间的区别在于QStyledItemDelegate
+# 使用当前样式来绘制项目。因此，建议实现自定义委托或当与Qt样式表一起使用时，使用QStyledItemDelegate作为基类
 
 
 

@@ -26,8 +26,10 @@ class Window(QWidget):
         box.addWidget(button)
         self.setLayout(box)
 
+        # 这里进行的是信号和槽的绑定
         button.clicked.connect(self.window_event)
 
+    # 这里是回调函数
     def window_event(self):
         print('hello world')
 

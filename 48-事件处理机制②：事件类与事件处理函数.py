@@ -15,13 +15,18 @@ from PySide6.QtGui import *
 from PySide6.QtCore import *
 
 
-# class my_lineedit(QLineEdit):
-#     def mousePressEvent(self, event):
-#         if event.button() == Qt.RightButton:
-#             self.setText('hello world')
+class my_lineedit(QLineEdit):
+    # 事件处理函数进行最终的处理
+    # 事件处理函数是事件类之中以Event结尾的虚函数
+    def mousePressEvent(self, event):
+        # event 拥有不同的类型，不同的类型之中包含不同的了一些相关的信息
+        print(type(event)) # 这里是QMouseEvent，我们可以上网进行查找其中包含什么样的信息
+        if event.button() == Qt.LeftButton:
+            self.setText('hello world')
 
-    # def enterEvent(self, event):
-    #     print('hello')
+    def enterEvent(self, event):
+        print('hello')
+
 
 class Window(QWidget):
     def __init__(self):
@@ -29,7 +34,7 @@ class Window(QWidget):
         self.window_ui()
 
     def window_ui(self):
-        line_edit = QLineEdit()
+        line_edit = my_lineedit()
         box = QHBoxLayout()
         box.addWidget(line_edit)
         self.setLayout(box)

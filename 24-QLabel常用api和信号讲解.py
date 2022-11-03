@@ -53,7 +53,7 @@ class Window(QWidget):
         # self.label.setFixedSize(QSize(200, 200))
         # self.label.setAlignment(Qt.AlignRight)
         # self.label.setWordWrap(True)
-        # self.label.setPixmap(QPixmap('./photo/go.png'))
+        # self.label.setPixmap(QPixmap('./icons/go.png'))
         # self.label.setScaledContents(True)
         # self.label.setStyleSheet('color: red;background-color: green;')
         # self.label.setPicture()

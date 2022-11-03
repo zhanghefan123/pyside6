@@ -20,6 +20,7 @@ class Window(QWidget):
         box.addWidget(button1)
         box.addWidget(button2)
         self.setLayout(box)
+        # setToolTip方法用于为控件添加提示信息
         line_edit.setToolTip('this is line..')
         button1.setToolTip('this is open..')
 

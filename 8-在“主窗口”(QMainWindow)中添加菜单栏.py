@@ -29,7 +29,7 @@ class Window(QMainWindow):
         menu = self.menuBar()
         file_menu = menu.addMenu('文件')
         create = file_menu.addAction('新建...(N)')
-        file_menu.addAction(QIcon('./photo/file_open.png'), '打开...(O)')
+        file_menu.addAction(QIcon('icons/file_open.png'), '打开...(O)')
 
         open_recent = file_menu.addMenu('打开最近')
         open_recent.addAction('管理项目...')

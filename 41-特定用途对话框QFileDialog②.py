@@ -55,7 +55,7 @@ class Window(QWidget):
         # file_dialog.setFileMode(QFileDialog.Directory)
 
         # file_dialog.filesSelected.connect(self.do_something)
-        print(file_dialog.exec_())
+        print(file_dialog.exec())
 
     def do_something(self):
         print('hello world')
@@ -65,4 +65,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Window()
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

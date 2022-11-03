@@ -28,22 +28,24 @@ class Window(QWidget):
         self.button6 = QRadioButton('较差')
         label1 = QLabel('专业技能：')
         label2 = QLabel('服务态度：')
+        # box 是一个网格布局
         box = QGridLayout()
         hbox1 = QHBoxLayout()
         hbox2 = QHBoxLayout()
-
         box.addWidget(label1, 0, 0)
         box.addWidget(label2, 2, 0)
+        # hbox1 包括了三个单选框
         hbox1.addWidget(self.button1)
         hbox1.addWidget(self.button2)
         hbox1.addWidget(self.button3)
+        # hbox2 包括了三个单选框
         hbox2.addWidget(self.button4)
         hbox2.addWidget(self.button5)
         hbox2.addWidget(self.button6)
         box.addLayout(hbox1, 1, 0, 1, 3)
         box.addLayout(hbox2, 3, 0, 1, 3)
         self.setLayout(box)
-
+        # 创建两个分组，分组之中只能有一个单选框被选中
         group1 = QButtonGroup(self)
         group2 = QButtonGroup(self)
         group1.addButton(self.button1)
@@ -52,9 +54,7 @@ class Window(QWidget):
         group2.addButton(self.button4)
         group2.addButton(self.button5)
         group2.addButton(self.button6)
-
-
-
+        # 设置按钮1处于被选中的状态
         self.button1.setChecked(True)
 
 

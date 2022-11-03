@@ -37,9 +37,9 @@ class Window(QMainWindow):
     def window_ui(self):
         tool = self.addToolBar('tool-1')
 
-        h1 = tool.addAction(QIcon('./photo/header1.png'), 'header1')
-        tool.addAction(QIcon('./photo/header2.png'), 'header2')
-        tool.addAction(QIcon('./photo/header3.png'), 'header3')
+        h1 = tool.addAction(QIcon('icons/header1.png'), 'header1')
+        tool.addAction(QIcon('icons/header2.png'), 'header2')
+        tool.addAction(QIcon('icons/header3.png'), 'header3')
         tool.setIconSize(QSize(20, 20))
         tool.setMovable(False)
 

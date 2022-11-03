@@ -28,9 +28,10 @@ class Window(QWidget):
         button.clicked.connect(self.window_event)
 
     def window_event(self):
-        message_box = QMessageBox.information(self, 'test..', '你需要提示吗？', QMessageBox.Cancel | QMessageBox.Ok)
-        print(message_box)
-        QMessageBox.critical()
+        # message_box = QMessageBox.information(self, 'test..', '你需要提示吗？', QMessageBox.Cancel | QMessageBox.Ok)
+        # print(message_box)
+        result = QMessageBox.critical(self, 'test..', '你需要提示吗？', QMessageBox.Cancel | QMessageBox.Ok)
+        print(result)
 
 
 if __name__ == '__main__':

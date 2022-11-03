@@ -64,14 +64,14 @@ class tree_model(QStandardItemModel):
     def __init__(self):
         super(tree_model, self).__init__()
         self.setHorizontalHeaderLabels(['目录', '详细信息', '大小'])
-        self.appendRow(QStandardItem(QIcon('./photo/file_open.png'), 'data'))
-        self.appendRow(QStandardItem(QIcon('./photo/file_open.png'), 'Adobe'))
-        test = QStandardItem(QIcon('./photo/file_open.png'), 'test')
+        self.appendRow(QStandardItem(QIcon('icons/file_open.png'), 'data'))
+        self.appendRow(QStandardItem(QIcon('icons/file_open.png'), 'Adobe'))
+        test = QStandardItem(QIcon('icons/file_open.png'), 'test')
         self.appendRow(test)
 
-        test.appendRow(QStandardItem(QIcon('./photo/file.png'), 'test1.py'))
-        test.appendRow(QStandardItem(QIcon('./photo/file.png'), 'test2.py'))
-        test.appendRow(QStandardItem(QIcon('./photo/file.png'), 'test3.py'))
+        test.appendRow(QStandardItem(QIcon('icons/file.png'), 'test1.py'))
+        test.appendRow(QStandardItem(QIcon('icons/file.png'), 'test2.py'))
+        test.appendRow(QStandardItem(QIcon('icons/file.png'), 'test3.py'))
         test.appendColumn(
             [QStandardItem('this is test1'), QStandardItem('this is test1'), QStandardItem('this is test1')])
         test.appendColumn([QStandardItem('234K'), QStandardItem('1.3G')])

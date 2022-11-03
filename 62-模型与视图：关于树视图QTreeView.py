@@ -37,14 +37,14 @@ class view(QTreeView):
 class model(QStandardItemModel):
     def __init__(self):
         super(model, self).__init__()
-        self.appendRow(QStandardItem(QIcon('./photo/file_open.png'), 'test'))
-        self.appendRow(QStandardItem(QIcon('./photo/file_open.png'), 'HBuilderProjects'))
-        self.appendRow(QStandardItem(QIcon('./photo/file_open.png'), '文件夹'))
-        self.itemFromIndex(self.index(1, 0)).appendRow(QStandardItem(QIcon('./photo/file.png'), 'test1.py'))
-        self.itemFromIndex(self.index(1, 0)).appendRow(QStandardItem(QIcon('./photo/file.png'), 'new.html'))
+        self.appendRow(QStandardItem(QIcon('icons/file_open.png'), 'test'))
+        self.appendRow(QStandardItem(QIcon('icons/file_open.png'), 'HBuilderProjects'))
+        self.appendRow(QStandardItem(QIcon('icons/file_open.png'), '文件夹'))
+        self.itemFromIndex(self.index(1, 0)).appendRow(QStandardItem(QIcon('icons/file.png'), 'test1.py'))
+        self.itemFromIndex(self.index(1, 0)).appendRow(QStandardItem(QIcon('icons/file.png'), 'new.html'))
         item1 = self.itemFromIndex(self.index(0, 0))
-        item1.appendRow(QStandardItem(QIcon('./photo/file_open.png'), '图片'))
-        item1.appendRow(QStandardItem(QIcon('./photo/file_open.png'), '下载'))
+        item1.appendRow(QStandardItem(QIcon('icons/file_open.png'), '图片'))
+        item1.appendRow(QStandardItem(QIcon('icons/file_open.png'), '下载'))
         self.itemFromIndex(self.index(0, 0, self.indexFromItem(item1))).appendRow(QStandardItem('go.png'))
         self.setHorizontalHeaderLabels(['目录', '尺寸', '修改日期', '详细信息'])
 

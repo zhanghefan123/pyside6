@@ -12,8 +12,9 @@ from PySide6.QtGui import *
 from PySide6.QtCore import *
 
 
+# 将内容读取到一个字符串中
 def load():
-    with open('test.txt') as file:
+    with open('./txtFiles/test.txt') as file:
         str1 = file.read()
     return str1
 
@@ -34,6 +35,7 @@ class Window(QWidget):
         box.addWidget(button2, 5, 3)
         self.setLayout(box)
         str1 = load()
+        # 进行内容的设置
         self.text_edit.setHtml(str1)
 
 

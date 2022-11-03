@@ -29,11 +29,13 @@ class Window(QWidget):
         box.addWidget(button)
         self.setLayout(box)
 
-        # int_validator = QIntValidator()
-        # int_validator.setRange(1, 99)
-        # int_validator.setTop()
-        # int_validator.setBottom()
-        # self.line_edit.setValidator(int_validator)
+        int_validator = QIntValidator()
+        # 设置方式1：
+        int_validator.setRange(1, 99) # 输入框之中将只能够输入设置的范围
+        # 设置方式2：
+        # int_validator.setTop(99) # 进行上限的限制
+        # int_validator.setBottom(1) # 进行下限的限制
+        self.line_edit.setValidator(int_validator)
 
 
 if __name__ == '__main__':

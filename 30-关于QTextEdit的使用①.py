@@ -30,7 +30,7 @@ from PySide6.QtCore import *
 
 
 def load():
-    with open('test.txt') as file:
+    with open('./txtFiles/test.txt') as file:
         str1 = file.read()
     return str1
 
