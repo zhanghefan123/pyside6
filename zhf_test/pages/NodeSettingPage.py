@@ -17,13 +17,15 @@ class NodesTreeWidget(QTreeWidget):
 
 
 class NodeSetting(QWidget):
-    def __init__(self):
+    def __init__(self, data):
         super().__init__()
+        self.data = data
         self.validation()
         self.initializeComponents()
         self.layoutSetting()
         self.bindFunction()
         # ------星座参数----------
+        self.projectName = ""
         self.consName = ""
         self.orbitNum = 0
         self.satPerOrbit = 0
@@ -36,14 +38,6 @@ class NodeSetting(QWidget):
         self.latitude = 0
         self.longitude = 0
         # ------------------------
-        # 用来存储所有我们创建的星座
-        self.allConstellations = []
-        # 用来存储所有我们创建的地面站
-        self.allGroundStations = []
-        # 用来存储所有我们创建的地面站的名称
-        self.allGroundStationNames = set()
-        # 用来存储所有我们创建的星座的名称
-        self.allConstellationNames = set()
 
     def validation(self):
         self.intValidator1 = QIntValidator()
@@ -78,6 +72,9 @@ class NodeSetting(QWidget):
         self.doubleValidator4.setDecimals(2)
 
     def initializeComponents(self):
+        self.textProjectName = QLabel("项目名称:")
+        self.lineEditProjectName = QLineEdit()
+        self.lineEditProjectName.setPlaceholderText("请输入项目名称:")
         # 这里我们要创建的是表单布局
         self.text0 = "星座名称:"
         self.lineEdit0 = QLineEdit()
@@ -141,7 +138,21 @@ class NodeSetting(QWidget):
         self.deleteAction = self.rightClickMenu.addAction("删除结点")
 
     def layoutSetting(self):
+        # -----总体的最大布局--------
         self.vlayout = QVBoxLayout()
+        # -------------------------
+
+        # --------------------添加项目名称的输入------------------------
+        self.hlayoutForProjectName = QHBoxLayout()
+        self.hlayoutForProjectName.addWidget(self.textProjectName)
+        self.hlayoutForProjectName.addWidget(self.lineEditProjectName)
+        self.frameProjectName = QFrame()
+        self.frameProjectName.setFrameShape(QFrame.Box)
+        self.frameProjectName.setLineWidth(5)
+        self.frameProjectName.setLayout(self.hlayoutForProjectName)
+        self.vlayout.addWidget(self.frameProjectName)
+        # ------------------------------------------------------------
+
         self.hlayout = QHBoxLayout()
         self.vlayout1 = QVBoxLayout()
         self.vlayout2 = QVBoxLayout()
@@ -151,7 +162,7 @@ class NodeSetting(QWidget):
         self.formLayout1.setVerticalSpacing(5)
         self.formLayout1.setHorizontalSpacing(20)
         self.frame1.setLayout(self.formLayout1)
-        self.frame1.setFixedWidth(350)
+        self.frame1.setFixedWidth(370)
         self.frame1.setFixedHeight(200)
         self.frame1.setFrameShape(QFrame.Box)
         self.frame1.setLineWidth(5)
@@ -169,13 +180,13 @@ class NodeSetting(QWidget):
         self.vlayout1.addWidget(self.button1)
 
         self.formLayout3 = QFormLayout()
-        self.formLayout3.setVerticalSpacing(43)
+        self.formLayout3.setVerticalSpacing(50)
         self.formLayout3.setHorizontalSpacing(20)
         self.formLayout3.addRow(self.text7, self.lineEdit7)
         self.formLayout3.addRow(self.text8, self.lineEdit8)
         self.formLayout3.addRow(self.text9, self.lineEdit9)
         self.frame3 = QFrame()
-        self.frame3.setFixedWidth(350)
+        self.frame3.setFixedWidth(370)
         self.frame3.setFixedHeight(200)
         self.frame3.setFrameShape(QFrame.Box)
         self.frame3.setLineWidth(5)
@@ -248,17 +259,17 @@ class NodeSetting(QWidget):
         if self.groundStationParamHasNullInput():
             result = QMessageBox.critical(self, 'test..', '字段不能够为空', QMessageBox.Ok)
             print(result)
-        elif self.groundStationName in self.allGroundStationNames:
+        elif self.groundStationName in self.data.allGroundStationNames:
             result = QMessageBox.critical(self, 'test..', '地面站名字不能够重复', QMessageBox.Ok)
-            print(self.allGroundStationNames)
+            print(self.data.allGroundStationNames)
         else:
             self.latitude = float(self.latitude)
             self.longitude = float(self.longitude)
             # 在这里我们创建我们的地面站对象并添加到我们的list之中进行存储
             groundStation = GroundStation(self.groundStationName, self.latitude, self.longitude)
-            self.allGroundStationNames.add(self.groundStationName)
+            self.data.allGroundStationNames.add(self.groundStationName)
             self.addGroundStationIntoTreeWidget(self.groundStationName, self.latitude, self.longitude)
-            self.allGroundStations.append(groundStation)
+            self.data.allGroundStations.append(groundStation)
 
     # 与信号相互绑定的槽
     def generateConstellation(self) -> None:
@@ -268,7 +279,7 @@ class NodeSetting(QWidget):
         if self.consParamHasNullInput():
             result = QMessageBox.critical(self, 'test..', '字段不能够为空', QMessageBox.Ok)
             print(result)
-        elif self.consName in self.allConstellationNames:
+        elif self.consName in self.data.allConstellationNames:
             result = QMessageBox.critical(self, 'test..', '星座名字不能够重复', QMessageBox.Ok)
             print(result)
         else:
@@ -281,13 +292,12 @@ class NodeSetting(QWidget):
                                           inclination=self.inclination, startingPhase=self.startingPhase,
                                           altitude=self.altitude)
             self.satellites = self.consGen.satellite_nodes_generation()
-            self.addConsIntoTreeWidget(self.consName, self.satellites, len(self.allConstellationNames))
+            self.addConsIntoTreeWidget(self.consName, self.satellites, len(self.data.allConstellationNames))
             # 在这里我们创建我们的星座对象并将其添加到我们的list之中进行存储
             currentCons = Constellation(self.consName, self.orbitNum, self.satPerOrbit, self.inclination,
-                                        self.startingPhase, self.altitude)
-            self.allConstellations.append(currentCons)
-            self.allConstellationNames.add(self.consName)
-
+                                        self.startingPhase, self.altitude, self.satellites)
+            self.data.allConstellations.append(currentCons)
+            self.data.allConstellationNames.add(self.consName)
 
     def rightMenuShowUp(self) -> None:
         """
@@ -318,9 +328,10 @@ class NodeSetting(QWidget):
             # 每次这样进行创建都是以我们传入的结点作为父结点在其内部进行子结点的创建
             item = QTreeWidgetItem(currentConsItem)
             item.setText(0, str(sat_index))  # 进行卫星的编号的设置
-            item.setText(1, consName + "_SAT_" + str(node[0]))
-            info = "轨道序号: {:d}, 轨道平面法向量: ({:.2f}, {:.2f}, {:.2f}), 轨道内结点序号: {:d} 相位偏移:{:.2f} deg". \
-                format(node[1], node[3][0], node[3][1], node[3][2], node[2], node[4])
+            item.setText(1, consName + "_SAT_" + str(node.sat_id))
+            # info = "轨道序号: {:d}, 轨道平面法向量: ({:.2f}, {:.2f}, {:.2f}), 轨道内结点序号: {:d} 相位偏移:{:.2f} deg". \
+            #     format(node[1], node[3][0], node[3][1], node[3][2], node[2], node[4])
+            info = node.info
             item.setText(2, info)
             sat_index += 1
         self.nodesTreeWidget.expandAll()
@@ -337,7 +348,7 @@ class NodeSetting(QWidget):
         # 以根结点作为父结点创建我们的地面站结点
         currentGroundStationItem = QTreeWidgetItem(groundStationRootItem)
         # 设置当前是第几个地面站
-        currentGroundStationItem.setText(0, str(len(self.allGroundStations)))
+        currentGroundStationItem.setText(0, str(len(self.data.allGroundStations)))
         # 设置地面站的名称
         currentGroundStationItem.setText(1, groundStationName)
         # 设置地面站的信息

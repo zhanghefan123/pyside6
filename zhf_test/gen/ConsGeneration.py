@@ -1,4 +1,5 @@
 import math
+from zhf_test.pojo.Satellite import Satellite
 
 
 class ConsGeneration:
@@ -55,9 +56,8 @@ class ConsGeneration:
 
                 # sat[0] 是卫星的编号, sat[1] 轨道编号, sat[2]是轨道内卫星的编号
                 # sat[3]三范数,sat[4]出始相位,sat[5]卫星的高度
-                sat = [satId, orbitId, satId - self.satPerOrbit * orbitId, orbit_normal,
-                       starting_phase, self.altitude]
-
+                sat = Satellite(satId, orbitId, satId - self.satPerOrbit * orbitId, orbit_normal, starting_phase,
+                                self.altitude)
                 # 将sat放到satList之中
                 sat_list.append(sat)
         return sat_list
@@ -67,4 +67,3 @@ if __name__ == "__main__":
     consGen = ConsGeneration(6, 11, 90, 0, 780)
     for item in consGen.satellite_nodes_generation():
         print(item)
-
