@@ -25,10 +25,10 @@ class IntegratedSatelliteTerrestrialNetwork(QMainWindow):
 
     def initializeComponents(self):
         self.setWindowTitle("Integrated Satellite Terrestrial Network")
-        self.resize(900, 600)
+        self.resize(800, 700)
         self.tabWidget = QTabWidget()
         self.tabWidget.setFixedWidth(800)
-        self.tabWidget.setFixedHeight(600)
+        self.tabWidget.setFixedHeight(700)
         self.nodeSettingWidget = NodeSetting(self.data)
         self.connectionSettingsWidget = ConnectionSettings(self.data)
         self.applicationSettingsWidget = ApplicationSettings(self.data)
@@ -76,6 +76,7 @@ class IntegratedSatelliteTerrestrialNetwork(QMainWindow):
         """
         self.nextStepButton.clicked.connect(self.nextStep)
         self.lastStepButton.clicked.connect(self.lastStep)
+        self.tabWidget.tabBarClicked.connect(self.tabWidgetClicked)
 
     def nextStep(self) -> None:
         """
@@ -96,8 +97,11 @@ class IntegratedSatelliteTerrestrialNetwork(QMainWindow):
             self.currentIndex += 1
         else:
             pass
+        self.data.projectName = project_name
         self.tabWidget.setCurrentIndex(self.currentIndex)
         self.changeTabEnabled(self.currentIndex)
+        self.changeButtonEnabled(self.currentIndex)
+        print(self.tabWidget.currentIndex())
 
     def lastStep(self) -> None:
         """
@@ -109,6 +113,18 @@ class IntegratedSatelliteTerrestrialNetwork(QMainWindow):
             pass
         self.tabWidget.setCurrentIndex(self.currentIndex)
         self.changeTabEnabled(self.currentIndex)
+        self.changeButtonEnabled(self.currentIndex)
+
+    def changeButtonEnabled(self, currentIndex) -> None:
+        if currentIndex == 0:
+            self.lastStepButton.setEnabled(False)
+            self.nextStepButton.setEnabled(True)
+        elif currentIndex == 1:
+            self.lastStepButton.setEnabled(True)
+            self.nextStepButton.setEnabled(True)
+        elif currentIndex == 2:
+            self.nextStepButton.setEnabled(False)
+            self.lastStepButton.setEnabled(True)
 
     def changeTabEnabled(self, currentIndex) -> None:
         """
@@ -127,6 +143,12 @@ class IntegratedSatelliteTerrestrialNetwork(QMainWindow):
             self.tabWidget.setTabEnabled(0, True)
             self.tabWidget.setTabEnabled(1, True)
             self.tabWidget.setTabEnabled(2, True)
+            self.currentIndex = 2
+
+    def tabWidgetClicked(self, index):
+        self.tabWidget.setCurrentIndex(index)
+        self.changeButtonEnabled(index)
+        self.currentIndex = index
 
 
 # 启动方法

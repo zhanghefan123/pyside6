@@ -74,55 +74,61 @@ class NodeSetting(QWidget):
     def initializeComponents(self):
         self.textProjectName = QLabel("项目名称:")
         self.lineEditProjectName = QLineEdit()
-        self.lineEditProjectName.setPlaceholderText("请输入项目名称:")
+        self.lineEditProjectName.setPlaceholderText("请输入项目名称")
+        # 这里我们添加的是一个常见的星座的comboBox
+        self.comboBoxLabel = QLabel("常见星座:")
+        self.comboBox1 = QComboBox()
+        self.comboBox1.setFixedWidth(120)
+        self.comboBox1.addItems(["自定义星座", "Iridium", "OneWeb"])
+
         # 这里我们要创建的是表单布局
         self.text0 = "星座名称:"
         self.lineEdit0 = QLineEdit()
-        self.lineEdit0.setFixedWidth(100)
+        self.lineEdit0.setFixedWidth(120)
         self.lineEdit0.setPlaceholderText("请输入星座名称")
         self.text1 = "链路切换纬度(度):"
         self.lineEdit1 = QLineEdit()
         self.lineEdit1.setPlaceholderText("66.32")
-        self.lineEdit1.setFixedWidth(100)
+        self.lineEdit1.setFixedWidth(120)
         self.lineEdit1.setValidator(self.doubleValidator1)
         self.text2 = QLabel("轨道的数量(根):")
         self.lineEdit2 = QLineEdit()
         self.lineEdit2.setPlaceholderText("12")
         self.lineEdit2.setValidator(self.intValidator1)
-        self.lineEdit2.setFixedWidth(100)
+        self.lineEdit2.setFixedWidth(120)
         self.text3 = QLabel("单个轨道的卫星数量(个):")
         self.lineEdit3 = QLineEdit()
         self.lineEdit3.setPlaceholderText("24")
         self.lineEdit3.setValidator(self.intValidator1)
-        self.lineEdit3.setFixedWidth(100)
+        self.lineEdit3.setFixedWidth(120)
         self.text4 = QLabel("轨道倾角(度):")
         self.lineEdit4 = QLineEdit()
         self.lineEdit4.setValidator(self.doubleValidator1)
         self.lineEdit4.setPlaceholderText("90")
-        self.lineEdit4.setFixedWidth(100)
+        self.lineEdit4.setFixedWidth(120)
         self.text5 = QLabel("初始相位(度):")
         self.lineEdit5 = QLineEdit()
         self.lineEdit5.setPlaceholderText("0")
-        self.lineEdit5.setFixedWidth(100)
+        self.lineEdit5.setFixedWidth(120)
         self.lineEdit5.setValidator(self.doubleValidator2)
         self.text6 = QLabel("星座高度(km):")
         self.lineEdit6 = QLineEdit()
         self.lineEdit6.setPlaceholderText("780")
-        self.lineEdit6.setFixedWidth(100)
+        self.lineEdit6.setFixedWidth(120)
         self.lineEdit6.setValidator(self.intValidator3)
         self.text7 = QLabel("地面站名称")
         self.lineEdit7 = QLineEdit()
         self.lineEdit7.setPlaceholderText("GND0")
-        self.lineEdit7.setFixedWidth(100)
+        self.lineEdit7.setFixedWidth(120)
         self.text8 = QLabel("经度")
         self.lineEdit8 = QLineEdit()
         self.lineEdit8.setPlaceholderText("0")
-        self.lineEdit8.setFixedWidth(100)
+        self.lineEdit8.setFixedWidth(120)
         self.lineEdit8.setValidator(self.doubleValidator3)
         self.text9 = QLabel("纬度")
         self.lineEdit9 = QLineEdit()
         self.lineEdit9.setPlaceholderText("0")
-        self.lineEdit9.setFixedWidth(100)
+        self.lineEdit9.setFixedWidth(120)
         self.lineEdit9.setValidator(self.doubleValidator4)
         self.button1 = QPushButton("生成星座")
         self.button2 = QPushButton("生成地面站")
@@ -170,6 +176,7 @@ class NodeSetting(QWidget):
         # self.frame1.setFixedHeight(250)
         self.vlayout1.addWidget(self.frameLabel1)
         self.vlayout1.addWidget(self.frame1)
+        self.formLayout1.addRow(self.comboBoxLabel, self.comboBox1)
         self.formLayout1.addRow(self.text0, self.lineEdit0)
         self.formLayout1.addRow(self.text1, self.lineEdit1)
         self.formLayout1.addRow(self.text2, self.lineEdit2)
@@ -221,6 +228,7 @@ class NodeSetting(QWidget):
         self.button1.clicked.connect(self.generateConstellation)
         self.button2.clicked.connect(self.generateGroundStation)
         self.nodesTreeWidget.customContextMenuRequested.connect(self.rightMenuShowUp)
+        self.comboBox1.currentIndexChanged.connect(self.comboBox1Changed)
 
     def consParamHasNullInput(self) -> bool:
         """
@@ -266,7 +274,7 @@ class NodeSetting(QWidget):
             self.latitude = float(self.latitude)
             self.longitude = float(self.longitude)
             # 在这里我们创建我们的地面站对象并添加到我们的list之中进行存储
-            groundStation = GroundStation(self.groundStationName, self.latitude, self.longitude)
+            groundStation = GroundStation(len(self.data.allGroundStations), self.groundStationName, self.latitude, self.longitude)
             self.data.allGroundStationNames.add(self.groundStationName)
             self.addGroundStationIntoTreeWidget(self.groundStationName, self.latitude, self.longitude)
             self.data.allGroundStations.append(groundStation)
@@ -290,7 +298,7 @@ class NodeSetting(QWidget):
             self.altitude = float(self.altitude)
             self.consGen = ConsGeneration(orbitNum=self.orbitNum, satPerOrbit=self.satPerOrbit,
                                           inclination=self.inclination, startingPhase=self.startingPhase,
-                                          altitude=self.altitude)
+                                          altitude=self.altitude, cons_name=self.consName)
             self.satellites = self.consGen.satellite_nodes_generation()
             self.addConsIntoTreeWidget(self.consName, self.satellites, len(self.data.allConstellationNames))
             # 在这里我们创建我们的星座对象并将其添加到我们的list之中进行存储
@@ -354,3 +362,43 @@ class NodeSetting(QWidget):
         # 设置地面站的信息
         info = "纬度:{:.2f}, 经度:{:.2f}".format(latitude, longitude)
         currentGroundStationItem.setText(2, info)
+
+    def comboBox1Changed(self, index):
+        if index == 0:
+            self.lineEdit0.setText("")
+            self.lineEdit1.setText("")
+            self.lineEdit2.setText("")
+            self.lineEdit3.setText("")
+            self.lineEdit4.setText("")
+            self.lineEdit5.setText("")
+            self.lineEdit6.setText("")
+        elif index == 1:
+            # 设置星座名称
+            self.lineEdit0.setText(self.comboBox1.currentText())
+            # 设置链路切换纬度
+            self.lineEdit1.setText("66.32")
+            # 设置轨道数量
+            self.lineEdit2.setText("6")
+            # 设置每根轨道的卫星的数量
+            self.lineEdit3.setText("11")
+            # 设置轨道倾角
+            self.lineEdit4.setText("90")
+            # 设置初始相位
+            self.lineEdit5.setText("0")
+            # 设置轨道高度
+            self.lineEdit6.setText("780")
+        elif index == 2:
+            # 设置星座名称
+            self.lineEdit0.setText(self.comboBox1.currentText())
+            # 设置链路切换纬度
+            self.lineEdit1.setText("66.32")
+            # 设置轨道数量
+            self.lineEdit2.setText("18")
+            # 设置每根轨道的卫星的数量
+            self.lineEdit3.setText("40")
+            # 设置轨道倾角
+            self.lineEdit4.setText("90")
+            # 设置初始相位
+            self.lineEdit5.setText("0")
+            # 设置轨道高度
+            self.lineEdit6.setText("1200")

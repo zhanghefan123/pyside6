@@ -17,8 +17,9 @@ class Constellation:
         self.startingPhase = startingPhase
         self.altitude = altitude
         self.nodes = nodes
-        self.satelliteNames = []
+        self.satelliteNames = set()
+        self.generateSatelliteNames()
 
     def generateSatelliteNames(self):
         for satellite in self.nodes:
-            self.satelliteNames.append()
+            self.satelliteNames.add(self.consName + "_SAT_" + str(satellite.sat_id))

@@ -7,6 +7,8 @@ class Data:
     """
 
     def __init__(self):
+        # 用来存储我们的项目名称
+        self.projectName = ""
         # 用来存储所有我们创建的星座
         self.allConstellations = []
         # 用来存储所有我们创建的地面站

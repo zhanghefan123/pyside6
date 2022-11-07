@@ -1,8 +1,7 @@
-# sat[0] 是卫星的编号, sat[1] 轨道编号, sat[2]是轨道内卫星的编号
-# sat[3]三范数,sat[4]初始相位,sat[5]卫星的高度
 class Satellite:
     def __init__(self, sat_id: int, orbit_id: int, sat_id_in_orbit: int, orbit_normal: list, starting_phase: float,
-                 altitude: float):
+                 altitude: float, sat_name: str):
+        self.sat_name = sat_name
         self.sat_id = sat_id
         self.orbit_id = orbit_id
         self.sat_id_in_orbit = sat_id_in_orbit
@@ -10,6 +9,7 @@ class Satellite:
         self.starting_phase = starting_phase
         self.altitude = altitude
         self.info = ""
+        self.ethNum = -1
         self.generateInfo()
 
     def generateInfo(self):

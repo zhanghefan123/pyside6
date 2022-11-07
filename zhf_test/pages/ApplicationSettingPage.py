@@ -2,6 +2,11 @@ from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 from PySide6.QtCore import *
 
+from zhf_test.scriptGenerator.IniFileGenerator import IniFileGenerator
+from zhf_test.scriptGenerator.Ipv4ConfigFileGenerator import Ipv4ConfigFileGenerator
+from zhf_test.scriptGenerator.NedFileGenerator import NedFileGenerator
+from zhf_test.scriptGenerator.OspfConfigFileGenerator import OspfConfigFileGenerator
+from zhf_test.scriptGenerator.LinkConfigFileGenerator import LinkConfigFileGenerator
 from zhf_test.pojo.Client import Client
 from zhf_test.pojo.Server import Server
 
@@ -24,6 +29,12 @@ class ApplicationSettings(QWidget):
         self.initializeComponents()
         self.layoutSetting()
         self.bindFunctions()
+        self.iniFileGenerator = IniFileGenerator(self.data)
+        self.ipv4ConfigFileGenerator = Ipv4ConfigFileGenerator(self.data)
+        self.nedFileGenerator = NedFileGenerator(self.data)
+        self.ospfConfigFileGenerator = OspfConfigFileGenerator(self.data)
+        self.linkConfigFileGenerator = LinkConfigFileGenerator(self.data)
+
 
     def initializeComponents(self) -> None:
         """
@@ -41,6 +52,7 @@ class ApplicationSettings(QWidget):
         self.lineEdit3 = QLineEdit()
         self.lineEdit3.setPlaceholderText("请输入目的结点的名称")
         self.button2 = QPushButton("添加")
+        self.button3 = QPushButton("生成配置文件")
 
     def layoutSetting(self) -> None:
         """
@@ -65,6 +77,7 @@ class ApplicationSettings(QWidget):
         self.hlayout2.addWidget(self.lineEdit3)
         self.hlayout2.addWidget(self.button2)
         self.vlayout.addLayout(self.hlayout2)
+        self.vlayout.addWidget(self.button3)
 
     def bindFunctions(self):
         """
@@ -73,6 +86,7 @@ class ApplicationSettings(QWidget):
         """
         self.button1.clicked.connect(self.addServer)
         self.button2.clicked.connect(self.addClient)
+        self.button3.clicked.connect(self.generateConfigurationFile)
 
     def serverHasNullInput(self):
         """
@@ -102,13 +116,18 @@ class ApplicationSettings(QWidget):
         if server_name == "":
             QMessageBox.critical(self, "提示", "服务器名称不能为空")
             return
-        elif server_name in self.data.serverList:
+        elif server_name not in self.data.allConstellations[0].satelliteNames:
+            QMessageBox.critical(self, "提示", "所选结点不存在")
+            return
+        elif server_name in self.data.serverNames:
             QMessageBox.critical(self, "提示", "已经存在同名的服务器")
             return
         # 首先进行server的创建
         server_function = ""
         server = Server(server_name, server_function)
         self.data.serverList.append(server)
+        self.data.serverNames.add(server_name)
+        self.updateApplicationSettingWidget()
 
     def addClient(self):
         """
@@ -121,21 +140,23 @@ class ApplicationSettings(QWidget):
         if client_name == "" or client_destination_server == "":
             QMessageBox.critical(self, "提示", "客户端以及目的结点不能为空")
             return
-        elif client_name not in self.data.allconstellations[0][6]:
+        elif client_name not in self.data.allConstellations[0].satelliteNames:
             QMessageBox.critical(self, "提示", "结点不存在")
             return
-        elif client_name in self.data.clientList:
+        elif client_name in self.data.clientNames:
             QMessageBox.critical(self, "提示", "客户端已经存在")
             return
-        elif client_destination_server not in self.data.serverList:
+        elif client_destination_server not in self.data.serverNames:
             QMessageBox.critical(self, "提示", "目的结点不是服务器")
             return
         # 首先进行client的创建
-        client = Client(client_name, client_destination_server)
+        client_object_function = ""
+        client = Client(client_name, client_object_function, client_destination_server)
         self.data.clientList.append(client)
         self.data.clientNames.add(client_name)
+        self.updateApplicationSettingWidget()
 
-    def updateServerList(self):
+    def updateApplicationSettingWidget(self):
         """
         更新服务器列表
         """
@@ -146,11 +167,33 @@ class ApplicationSettings(QWidget):
         for server in self.data.serverList:
             self.applicationSettingWidget.setItem(index, 0, QTableWidgetItem(str(index)))
             self.applicationSettingWidget.setItem(index, 1, QTableWidgetItem("服务器"))
-            self.applicationSettingWidget.setItem(index, 2, QTableWidgetItem(server.name))
+            self.applicationSettingWidget.setItem(index, 2, QTableWidgetItem(server.serverName))
             index += 1
         for client in self.data.clientList:
             self.applicationSettingWidget.setItem(index, 0, QTableWidgetItem(str(index)))
             self.applicationSettingWidget.setItem(index, 1, QTableWidgetItem("客户端"))
-            self.applicationSettingWidget.setItem(index, 2, QTableWidgetItem(client.name))
-            self.applicationSettingWidget.setItem(index, 3, QTableWidgetItem(client.object_dest_server_name))
+            self.applicationSettingWidget.setItem(index, 2, QTableWidgetItem(client.clientName))
+            self.applicationSettingWidget.setItem(index, 3, QTableWidgetItem(client.objectDestinationServer))
             index += 1
+
+    def generateConfigurationFile(self):
+        """
+        进行配置文件的生成
+        """
+        pg_dialog = QProgressDialog(self)
+        # pg_dialog.forceShow()
+        pg_dialog.setLabelText('generating...')
+        pg_dialog.setWindowModality(Qt.WindowModal)
+        # 不管总的运行时间是否超过了我们的minimumDuration，都会显示进度条
+        pg_dialog.forceShow()
+        pg_dialog.setRange(0, 50000)
+        self.iniFileGenerator.generate()
+        pg_dialog.setValue(10000)
+        self.ipv4ConfigFileGenerator.writeIntoConfigFile()
+        pg_dialog.setValue(20000)
+        self.nedFileGenerator.writeIntoConfigFile()
+        pg_dialog.setValue(30000)
+        self.ospfConfigFileGenerator.writeIntoConfigFile()
+        pg_dialog.setValue(40000)
+        self.linkConfigFileGenerator.writeIntoConfigFile()
+        pg_dialog.close()

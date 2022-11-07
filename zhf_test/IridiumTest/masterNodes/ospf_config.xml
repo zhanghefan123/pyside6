@@ -1,0 +1,383 @@
+
+<?xml version="1.0"?>
+<OSPFASConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="OSPF.xsd">
+
+  <!-- Areas -->
+  <Area id="0.0.0.0">
+  </Area>
+	<Router name="Iridium_SAT_0" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_1" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_2" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_3" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_4" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_5" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_6" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_7" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_8" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_9" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_10" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_11" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_12" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_13" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_14" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_15" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_16" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_17" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_18" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_19" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_20" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_21" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_22" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_23" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_24" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_25" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_26" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_27" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_28" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_29" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_30" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_31" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_32" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_33" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_34" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_35" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_36" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_37" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_38" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_39" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_40" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_41" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_42" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_43" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_44" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_45" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_46" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_47" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_48" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_49" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_50" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_51" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_52" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_53" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_54" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth3" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_55" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_56" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_57" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_58" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_59" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_60" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_61" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_62" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_63" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_64" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+	<Router name="Iridium_SAT_65" RFC1583Compatible="true">
+		<PointToPointInterface ifName="eth0" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth1" areaID="0.0.0.0" interfaceOutputCost="1"/>
+		<PointToPointInterface ifName="eth2" areaID="0.0.0.0" interfaceOutputCost="1"/>
+	</Router>
+
+</OSPFASConfig>

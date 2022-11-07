@@ -14,7 +14,7 @@ class ConsGeneration:
         self.startingPhase = 0
         self.altitude = 0
 
-    def __init__(self, orbitNum: int, satPerOrbit: int, inclination: float, startingPhase: float, altitude: float):
+    def __init__(self, orbitNum: int, satPerOrbit: int, inclination: float, startingPhase: float, altitude: float, cons_name: str):
         """
         :param orbitNum 轨道数量
         :param satPerOrbit 每根轨道的卫星的数量
@@ -27,6 +27,7 @@ class ConsGeneration:
         self.altitude = altitude
         # 将要生成的结点的列表
         self.nodes = []
+        self.cons_name = cons_name
 
     def satellite_nodes_generation(self):
         """
@@ -57,7 +58,7 @@ class ConsGeneration:
                 # sat[0] 是卫星的编号, sat[1] 轨道编号, sat[2]是轨道内卫星的编号
                 # sat[3]三范数,sat[4]出始相位,sat[5]卫星的高度
                 sat = Satellite(satId, orbitId, satId - self.satPerOrbit * orbitId, orbit_normal, starting_phase,
-                                self.altitude)
+                                self.altitude, self.cons_name+"_SAT_"+str(satId))
                 # 将sat放到satList之中
                 sat_list.append(sat)
         return sat_list
